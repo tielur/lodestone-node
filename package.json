@@ -1,6 +1,6 @@
 {
   "name": "lodestone",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Simple lodestone scraper for node.js, created for xivarrsite.com",
   "main": "lodestone.js",
   "scripts": {

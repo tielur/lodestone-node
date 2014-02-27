@@ -28,11 +28,13 @@ lodestone.getChar(character_id, function (err, character) {
 Sample output:
 
 ```
-{ current_job: 'Scholar',
-  current_job_level: 50,
+{ 
   name: 'Mariko Shinoda',
   id: '1554967',
   server: 'Ultros',
+  current_job: 'Scholar',
+  current_job_level: 50,
+  ilv: 89,
   fc:
    { id: '9234208823458136068',
      name: 'Gather Against Fate',
@@ -111,8 +113,8 @@ Sample output:
       { name: 'Soul of the Scholar',
         ilv: 30,
         type: 'Soul Crystal',
-        id: 'eb511e3871f' } },
-  ilv: 89 }
+        id: 'eb511e3871f' } }
+	}
 ```
 
 more coming soon!
