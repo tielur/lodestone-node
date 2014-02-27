@@ -1,0 +1,39 @@
+{
+  "name": "lodestone",
+  "version": "0.1.0",
+  "description": "Simple lodestone scraper for node.js, created for xivarrsite.com",
+  "main": "lodestone.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "game",
+    "final",
+    "fantasy",
+    "xiv",
+    "scraper",
+    "lodestone"
+  ],
+  "author": {
+    "name": "Alessandro Cuzzocrea",
+    "email": "rex64.jp@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rex64/lodestone-node.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/rex64/lodestone-node/master/LICENSE"
+    }
+  ],
+  "dependencies": {
+    "request": "~2.33.0",
+    "cheerio": "~0.13.1",
+    "underscore": "~1.6.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.17.1"
+  }
+}
