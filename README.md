@@ -7,7 +7,7 @@ Simple lodestone scraper for node.js, created for xivarrsite.com
 Install:
 
 ```
-npm install
+npm install lodestone
 ```
 
 How to use:
@@ -114,7 +114,7 @@ Sample output:
         ilv: 30,
         type: 'Soul Crystal',
         id: 'eb511e3871f' } }
-	}
+}
 ```
 
 more coming soon!
