@@ -288,14 +288,8 @@ var _scrape = function (body, callback) {
 
         item.name = $(this).find('.item_name').text();
         item.ilv  = parseInt($(this).find('.pt3').text().replace('Item Level ', ''), 10);
-        item.type = $(this).find('.name_area.clearfix')
-                        .clone()//clone the element
-                            .children()//select all the children
-                                .remove()//remove all the children
-                                    .end()//again go back to selected element
-                                        .text()
-                                            .trim();
-        item.id   = $(this).find('.bt_db_item_detail').attr('href').replace('/lodestone/playguide/db/item/', '').replace('/', '');
+        item.type = $(this).find('.name_area.clearfix').find('.category_name').text();
+        item.id   = $(this).find('.bt_db_item_detail').find('a').attr('href').replace('/lodestone/playguide/db/item/', '').replace('/', '');
 
 
         if (getItemSlot(item.type) === 'ring') {
