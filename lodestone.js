@@ -241,11 +241,11 @@ var _scrape = function (body, callback) {
     character.server        = $('.area_footer.player_name_txt span').text().trim().replace('(', '').replace(')', '');
 
     //FC
-    if ($('.chara_profile_list a.txt_yellow').length !== 0) {
+    if ($('.chara_profile_box_info a.txt_yellow').length !== 0) {
 
         character.fc        = {};
-        character.fc.id     = $('.chara_profile_list a.txt_yellow').attr('href').replace('/lodestone/freecompany/', '').replace('/', '');
-        character.fc.name   = $('.chara_profile_list a.txt_yellow').text();
+        character.fc.id     = $('.chara_profile_box_info a.txt_yellow').attr('href').replace('/lodestone/freecompany/', '').replace('/', '');
+        character.fc.name   = $('.chara_profile_box_info a.txt_yellow').text();
         character.fc.server = character.server;
     }
 
