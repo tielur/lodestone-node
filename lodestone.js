@@ -222,7 +222,7 @@ function calcIlv(items) {
 
 }
 
-var _scrape = function (body, callback) {
+var _scrapeCharacter = function (body, callback) {
 
     'use strict';
 
@@ -321,29 +321,56 @@ var _scrape = function (body, callback) {
     callback(null, character);
 };
 
-var getChar = function (character_id, callback) {
+var getCharacterById = function(character_id, callback) {
 
-    'use strict';
+  'use strict';
 
-    request('http://na.finalfantasyxiv.com/lodestone/character/' + character_id + '/',
-                  function (error, response, body) {
+  request('http://na.finalfantasyxiv.com/lodestone/character/' + character_id + '/',
+    function(error, response, body) {
 
-            if (!error && response.statusCode === 200) {
+      if (!error && response.statusCode === 200) {
 
-                _scrape(body, function (err, char) {
+        _scrapeCharacter(body, function(err, char) {
 
-                    callback(err, char);
-                });
-
-            } else {
-
-                callback(error, null);
-            }
-
-            response.resume();
+          callback(err, char);
         });
+
+      } else {
+
+        callback(error, null);
+      }
+
+      response.resume();
+    });
 
 };
 
-exports._scrape = _scrape;
-exports.getChar = getChar;
+var getCharacterByName = function(characterName, callback) {
+  request('http://na.finalfantasyxiv.com/lodestone/character/?q=' + characterName,
+    function(error, response, body) {
+
+      if (!error && response.statusCode === 200) {
+
+        var start = new Date().getTime();
+        $ = cheerio.load(body);
+        var end = new Date().getTime();
+        var time = end - start;
+
+        var characterId = _.compact($(".table_black_border_bottom tr a").attr('href').match(/\d*/g))[0];
+
+        getCharacterById(characterId, function(err, character) {
+          callback(err, character);
+        })
+      } else {
+
+        callback(error, null);
+      }
+
+      response.resume();
+    });
+
+}
+
+exports._scrapeCharacter = _scrapeCharacter;
+exports.getCharacterById = getCharacterById;
+exports.getCharacterByName = getCharacterByName;
